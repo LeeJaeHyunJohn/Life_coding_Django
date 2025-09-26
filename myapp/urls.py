@@ -16,12 +16,10 @@ Including another URLconf(다른 urls로 위임을 하는 경우)
 """
 from django.contrib import admin
 from django.urls import path, include
-# http://127.0.0.1/ 
-# http://127.0.0.1/app/
+from myapp import views
 
-# http://127.0.0.1/create/
-# http://127.0.0.1/read/1/
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls'))
+    path('', views.index),
+    path('create/', views.create),
+    path('read/<id>/', views.read)
 ]
